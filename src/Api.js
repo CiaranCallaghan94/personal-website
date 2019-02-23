@@ -7,7 +7,7 @@ class Api extends Component {
 
     // Code is invoked after the component is mounted/inserted into the DOM tree.
     componentDidMount() {
-        const url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=football&format=json&origin=*";
+        const url = "http://127.0.0.1:5000/player";
 
         fetch(url)
             .then(result => result.json())
@@ -20,15 +20,17 @@ class Api extends Component {
 
     render() {
         const { data } = this.state;
-
-        const result = data.map((entry, index) => {
-            return <li key={index}>{entry}</li>;
-        });
-
+        const players = data.players;
+        var listPlayers = [];
+        if(players!==undefined){
+          listPlayers = players.map((number, index) =>
+            <li key={index}>{number}</li>
+          );
+        }
         return(
           <div>
             <h1>API Data</h1>
-            <ul>{result}</ul>
+            <ul>{listPlayers}</ul>
           </div>
         )
     }
