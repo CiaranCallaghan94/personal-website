@@ -7,7 +7,7 @@ class Api extends Component {
 
     // Code is invoked after the component is mounted/inserted into the DOM tree.
     componentDidMount() {
-        const url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=bread&format=json&origin=*";
+        const url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=football&format=json&origin=*";
 
         fetch(url)
             .then(result => result.json())
